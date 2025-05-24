@@ -1,81 +1,673 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Caj Abrahamsson - Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #667eea;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Main Content */
+        main {
+            margin-top: 80px;
+            padding: 2rem 0;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            margin: 2rem 0;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: white;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        /* About Section */
+        .about {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 4rem 0;
+            margin: 3rem 0;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        /* Projects Section */
+        .projects {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 4rem 0;
+            margin: 3rem 0;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-category {
+            margin-bottom: 2rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 15px;
+            overflow: hidden;
+            background: white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .project-category:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .category-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.3rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .category-header:hover {
+            background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+        }
+
+        .category-icon {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+
+        .expand-icon {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .category-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .category-content.expanded {
+            max-height: 1000px;
+        }
+
+        .subcategory {
+            border-top: 1px solid #f0f0f0;
+            background: #fafafa;
+        }
+
+        .subcategory-header {
+            padding: 1rem 2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: #555;
+            transition: all 0.3s ease;
+        }
+
+        .subcategory-header:hover {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .subcategory-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: white;
+        }
+
+        .subcategory-content.expanded {
+            max-height: 500px;
+        }
+
+        .project-item {
+            padding: 1.5rem 2.5rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .project-item:last-child {
+            border-bottom: none;
+        }
+
+        .project-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-description {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+
+
+        /* Contact Section */
+        .contact {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 4rem 0;
+            margin: 3rem 0;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #555;
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="logo">CA</div>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Portfolio</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <div class="hamburger">☰</div>
-    </nav>
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">CA</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section id="home" class="hero">
             <h1>Hi, I'm Caj Abrahamsson</h1>
-            <p>Data Analyst & Designer</p>
-            <a href="#contact" class="cta-button">Get in Touch</a>
-        </div>
-    </section>
+            <p>An data analyst transforming raw data into actionable insights</p>
+            <a href="#projects" class="cta-button">View My Work</a>
+        </section>
 
-    <!-- About Section -->
-    <section id="about" class="section">
-        <h2>About Me</h2>
-        <p>I'm a passionate data analyst with +5 years of experience in creating insightful, user-friendly and visually appealing reports and dashboards. Skilled in Power BI, well versed in Python and SQL.</p>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="section">
-        <h2>My Portfolio</h2>
-        <div class="projects-grid">
-            <div class="project-card">
-                <img src="https://cdn.freelogovectors.net/wp-content/uploads/2023/11/power-bi-logo-freelogovectors.net_.png" width="100" height="200" alt="Project 1">
-                <h3>Power BI</h3>
-                <p>A Operations Health Dashboard showcasing incidents and changes kpi's and metrics</p>
-                <a href="#" class="project-link">View Project</a>
+        <section id="about" class="about">
+            <h2 class="section-title">About Me</h2>
+            <div class="container">
+                <p style="font-size: 1.1rem; text-align: center; color: #555; max-width: 800px; margin: 0 auto;">
+                    Passionate operations data analyst with expertise in transforming complex operational data into clear, actionable insights. Specialized in creating comprehensive dashboards, automating data processes, and developing analytical solutions that drive operational efficiency and strategic decision-making.
+                </p>
             </div>
-            <div class="project-card">
-                <img src="https://i.pinimg.com/originals/92/60/dd/9260dd459aa4566cfa25e86a3f10ea1b.png" width="100" height="200" alt="Project 2">
-                <h3>Python</h3>
-                <p>An automatic data extraction pipe-line exporting Jira issues to a Sharepoint folder</p>
-                <a href="#" class="project-link">View Project</a>
-            </div>
-            <div class="project-card">
-                <img src="https://ultimateitcourses.ca/wp-content/uploads/2018/08/SQL.png" width="100" height="200" alt="Project 3">
-                <h3>SQL</h3>
-                <p>A unified infrastructure dashboard created in Grafana </p>
-                <a href="#" class="project-link">View Project</a>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-        <h2>Contact Me</h2>
-        <form id="contact-form">
-            <input type="text" placeholder="Name" required>
-            <input type="email" placeholder="Email" required>
-            <textarea placeholder="Your Message" required></textarea>
-            <button type="submit" class="cta-button">Send Message</button>
-        </form>
-    </section>
+        <section id="projects" class="projects">
+            <h2 class="section-title">Projects</h2>
+            <div class="container">
+                
+                <!-- Power BI Section -->
+                <div class="project-category">
+                    <div class="category-header" onclick="toggleCategory('powerbi')">
+                        <div>
+                            <span class="category-icon">📊</span>
+                            Power BI
+                        </div>
+                        <span class="expand-icon" id="powerbi-icon">▼</span>
+                    </div>
+                    <div class="category-content" id="powerbi-content">
+                        
+                        <div class="subcategory">
+                            <div class="subcategory-header" onclick="toggleSubcategory('powerbi-dashboards')">
+                                <span>Interactive Dashboards</span>
+                                <span class="expand-icon" id="powerbi-dashboards-icon">▼</span>
+                            </div>
+                            <div class="subcategory-content" id="powerbi-dashboards-content">
+                                <div class="project-item">
+                                    <div class="project-title">Operations Performance Dashboard</div>
+                                    <div class="project-description">Comprehensive dashboard tracking KPIs across multiple operational areas including productivity, quality metrics, and resource utilization.</div>
+                                    <div class="project-tags">
+                                        <span class="tag">DAX</span>
+                                        <span class="tag">Power Query</span>
+                                        <span class="tag">KPI Tracking</span>
+                                    </div>
+                                </div>
+                                <div class="project-item">
+                                    <div class="project-title">Supply Chain Analytics</div>
+                                    <div class="project-description">Real-time monitoring of supply chain operations with automated alerts for inventory levels and delivery performance.</div>
+                                    <div class="project-tags">
+                                        <span class="tag">Real-time Data</span>
+                                        <span class="tag">Alerts</span>
+                                        <span class="tag">Supply Chain</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-    <!-- Footer -->
+                        <div class="subcategory">
+                            <div class="subcategory-header" onclick="toggleSubcategory('powerbi-reports')">
+                                <span>Executive Reports</span>
+                                <span class="expand-icon" id="powerbi-reports-icon">▼</span>
+                            </div>
+                            <div class="subcategory-content" id="powerbi-reports-content">
+                                <div class="project-item">
+                                    <div class="project-title">Monthly Operations Review</div>
+                                    <div class="project-description">Automated monthly report generation with trend analysis and performance benchmarking for executive review.</div>
+                                    <div class="project-tags">
+                                        <span class="tag">Automation</span>
+                                        <span class="tag">Trend Analysis</span>
+                                        <span class="tag">Executive Reporting</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Python Section -->
+                <div class="project-category">
+                    <div class="category-header" onclick="toggleCategory('python')">
+                        <div>
+                            <span class="category-icon">🐍</span>
+                            Python
+                        </div>
+                        <span class="expand-icon" id="python-icon">▼</span>
+                    </div>
+                    <div class="category-content" id="python-content">
+                        
+                        <div class="subcategory">
+                            <div class="subcategory-header" onclick="toggleSubcategory('python-automation')">
+                                <span>Process Automation</span>
+                                <span class="expand-icon" id="python-automation-icon">▼</span>
+                            </div>
+                            <div class="subcategory-content" id="python-automation-content">
+                                <div class="project-item">
+                                    <div class="project-title">Automated Data Pipeline</div>
+                                    <div class="project-description">End-to-end data pipeline automating ETL processes for operational data from multiple sources.</div>
+                                    <div class="project-tags">
+                                        <span class="tag">pandas</span>
+                                        <span class="tag">ETL</span>
+                                        <span class="tag">Scheduling</span>
+                                    </div>
+                                </div>
+                                <div class="project-item">
+                                    <div class="project-title">Report Generation Bot</div>
+                                    <div class="project-description">Automated system for generating and distributing daily operational reports to stakeholders.</div>
+                                    <div class="project-tags">
+                                        <span class="tag">Email Automation</span>
+                                        <span class="tag">Report Generation</span>
+                                        <span class="tag">Scheduling</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="subcategory">
+                            <div class="subcategory-header" onclick="toggleSubcategory('python-analysis')">
+                                <span>Data Analysis</span>
+                                <span class="expand-icon" id="python-analysis-icon">▼</span>
+                            </div>
+                            <div class="subcategory-content" id="python-analysis-content">
+                                <div class="project-item">
+                                    <div class="project-title">Predictive Maintenance Model</div>
+                                    <div class="project-description">Machine learning model to predict equipment maintenance needs based on operational data patterns.</div>
+                                    <div class="project-tags">
+                                        <span class="tag">scikit-learn</span>
+                                        <span class="tag">Predictive Analytics</span>
+                                        <span class="tag">Maintenance</span>
+                                    </div>
+                                </div>
+                                <div class="project-item">
+                                    <div class="project-title">Operational Efficiency Analysis</div>
+                                    <div class="project-description">Statistical analysis of operational processes to identify bottlenecks and efficiency improvement opportunities.</div>
+                                    <div class="project-tags">
+                                        <span class="tag">Statistical Analysis</span>
+                                        <span class="tag">Process Optimization</span>
+                                        <span class="tag">Visualization</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- SQL Section -->
+                <div class="project-category">
+                    <div class="category-header" onclick="toggleCategory('sql')">
+                        <div>
+                            <span class="category-icon">🗄️</span>
+                            SQL
+                        </div>
+                        <span class="expand-icon" id="sql-icon">▼</span>
+                    </div>
+                    <div class="category-content" id="sql-content">
+                        
+                        <div class="subcategory">
+                            <div class="subcategory-header" onclick="toggleSubcategory('sql-optimization')">
+                                <span>Query Optimization</span>
+                                <span class="expand-icon" id="sql-optimization-icon">▼</span>
+                            </div>
+                            <div class="subcategory-content" id="sql-optimization-content">
+                                <div class="project-item">
+                                    <div class="project-title">Performance Monitoring Queries</div>
+                                    <div class="project-description">Optimized SQL queries for real-time operational performance monitoring with sub-second response times.</div>
+                                    <div class="project-tags">
+                                        <span class="tag">Performance Tuning</span>
+                                        <span class="tag">Indexing</span>
+                                        <span class="tag">Real-time</span>
+                                    </div>
+                                </div>
+                                <div class="project-item">
+                                    <div class="project-title">Data Warehouse ETL</div>
+                                    <div class="project-description">Complex ETL procedures for loading operational data into enterprise data warehouse with data quality checks.</div>
+                                    <div class="project-tags">
+                                        <span class="tag">ETL</span>
+                                        <span class="tag">Data Quality</span>
+                                        <span class="tag">Stored Procedures</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="subcategory">
+                            <div class="subcategory-header" onclick="toggleSubcategory('sql-reporting')">
+                                <span>Advanced Reporting</span>
+                                <span class="expand-icon" id="sql-reporting-icon">▼</span>
+                            </div>
+                            <div class="subcategory-content" id="sql-reporting-content">
+                                <div class="project-item">
+                                    <div class="project-title">Operational Metrics Framework</div>
+                                    <div class="project-description">Comprehensive SQL framework for calculating and tracking operational KPIs across different time periods and organizational levels.</div>
+                                    <div class="project-tags">
+                                        <span class="tag">Window Functions</span>
+                                        <span class="tag">CTE</span>
+                                        <span class="tag">KPI Framework</span>
+                                    </div>
+                                </div>
+                                <div class="project-item">
+                                    <div class="project-title">Trend Analysis Views</div>
+                                    <div class="project-description">Dynamic SQL views for analyzing operational trends and patterns with flexible date range parameters.</div>
+                                    <div class="project-tags">
+                                        <span class="tag">Dynamic SQL</span>
+                                        <span class="tag">Trend Analysis</span>
+                                        <span class="tag">Views</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+
+        <section id="contact" class="contact">
+            <h2 class="section-title">Get In Touch</h2>
+            <p style="font-size: 1.1rem; color: #555; margin-bottom: 2rem;">
+                Ready to transform your operational data into actionable insights? Let's discuss your next project.
+            </p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📧</span>
+                    <span>caj.abrahamsson@protonmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <span>💼</span>
+                    <span>LinkedIn Profile</span>
+                </div>
+                <div class="contact-item">
+                    <span>🐙</span>
+                    <span>GitHub Portfolio</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
     <footer>
-        <p>&copy; 2025 Caj Abrahamsson. All rights reserved.</p>
+        <div class="container">
+            <p>&copy; 2025 Caj Abrahamsson. All rights reserved.</p>
+        </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        function toggleCategory(categoryId) {
+            const content = document.getElementById(categoryId + '-content');
+            const icon = document.getElementById(categoryId + '-icon');
+            
+            if (content.classList.contains('expanded')) {
+                content.classList.remove('expanded');
+                icon.textContent = '▼';
+                // Close all subcategories when main category closes
+                const subcategories = content.querySelectorAll('.subcategory-content');
+                subcategories.forEach(sub => {
+                    sub.classList.remove('expanded');
+                });
+                const subIcons = content.querySelectorAll('.subcategory .expand-icon');
+                subIcons.forEach(subIcon => {
+                    subIcon.textContent = '▼';
+                });
+            } else {
+                content.classList.add('expanded');
+                icon.textContent = '▲';
+            }
+        }
+
+        function toggleSubcategory(subcategoryId) {
+            const content = document.getElementById(subcategoryId + '-content');
+            const icon = document.getElementById(subcategoryId + '-icon');
+            
+            if (content.classList.contains('expanded')) {
+                content.classList.remove('expanded');
+                icon.textContent = '▼';
+            } else {
+                content.classList.add('expanded');
+                icon.textContent = '▲';
+            }
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+    </script>
 </body>
 </html>
