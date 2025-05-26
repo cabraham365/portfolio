@@ -1,6 +1,6 @@
-# Welcome to my portfolio!
+# Welcome to my data analyst portfolio!
 
-Welcome to my data analyst portfolio! This repository showcases my skills, project experience, and approach to solving real-world data problems. Here, you'll find selected projects that demonstrate my expertise in data cleaning, transformation, modeling, and visualization. My goal is to provide clear, actionable insights through data-driven analysis.
+This repository showcases my skills, project experience, and approach to solving real-world data problems. Here, you'll find selected projects that demonstrate my expertise in data cleaning, transformation, modeling, and visualization. My goal is to provide clear, actionable insights through data-driven analysis.
 
 ---
 
@@ -24,11 +24,12 @@ Each project below includes a summary, objectives, data sources, tools used, and
   - Enhance Data-Driven Culture: Facilitate regular performance reviews and continuous improvement initiatives.
 - **Data:**  
   - Jira Project and Issue Management System
+  - Storage: Processed data saved to a PostgreSQL database
   - Incident records ( key, priority, incident_start, fault_caused_by, area, function, duration, response_time, turn_over_drop, change_caused_by )
 - **Tools & Skills:**  
-  - Power BI Desktop: For report and dashboard creation
+  - Power BI Desktop: For report, data modelling and dashboard creation
   - Power Query: For data cleaning, transformation, and merging multiple data sources  
-  - DAX (Data Analysis Expressions): For advanced calculations and KPI creation
+  - DAX: For calculations and KPI creation
   - Scheduled Data Refresh: Ensuring near real-time data availability
   - Custom Visuals: For intuitive, interactive data exploration
 - **Key Outcomes:**  
@@ -50,7 +51,7 @@ Each project below includes a summary, objectives, data sources, tools used, and
   - Incident records ( key, priority, incident_start, fault_caused_by, area, function, duration, response_time, turn_over_drop, change_caused_by )
   - Format: JSON (raw), transformed to CSV/Parquet for downstream use
 - **Tools & Skills:**  
-  - Python Libraries: requests, pandas, pyyaml, sqlalchemy
+  - Python Libraries: requests, csv, jason, base64, logging, os, sys 
   - ETL Orchestration: Modular scripts with logging and error handling
   - Storage: Processed data saved to local files
 - **Key Outcomes:**  
