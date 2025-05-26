@@ -6,7 +6,7 @@ Welcome to my data analyst portfolio! This repository showcases my skills, proje
 
 ## **About Me**
 
-I'm an operations data analyst based in Kista, Sweden, with a passion for transforming raw data into meaningful insights. My background includes hands-on experience with data cleaning, Power BI (especially Power Query), and building models that support business decisions. I also enjoy table tennis and sci-fi, with *Blade Runner* as my all-time favorite for its immersive atmosphere and storytelling.
+I'm an operations data analyst based in Stockholm, Sweden, with a passion for transforming raw data into meaningful insights. My background includes hands-on experience with data cleaning, Power BI (especially Power Query), and building models that support business decisions. I also enjoy table tennis, hiking, disc-golf and sci-fi.
 
 ---
 
@@ -14,7 +14,7 @@ I'm an operations data analyst based in Kista, Sweden, with a passion for transf
 
 Each project below includes a summary, objectives, data sources, tools used, and key outcomes.
 
-### **1. [Project Title: Example – Tech Store Sales Analysis]**
+### **1. [Power BI / Operations Health Dashboard]**
 
 - **Summary:** Analyzed a retail tech store's sales data to uncover trends, identify top-selling products, and recommend improvements.
 - **Objectives:**  
@@ -31,7 +31,7 @@ Each project below includes a summary, objectives, data sources, tools used, and
   - Identified top products and provided insights into sales drivers  
   - Proposed strategies for inventory and marketing optimization
 
-### **2. [Project Title: Example – Movie Success Factors Analysis]**
+### **2. [Python / Jira Data Extraction Pipeline]**
 
 - **Summary:** Explored what factors most influence a movie's box office success.
 - **Objectives:**  
@@ -45,30 +45,6 @@ Each project below includes a summary, objectives, data sources, tools used, and
 - **Key Outcomes:**  
   - Found strong correlation between votes/budget and gross earnings  
   - Provided actionable recommendations for movie producers
-
----
-
-## **How to Use This Portfolio**
-
-1. **Clone the Repository:**  
-   ```bash
-   git clone https://github.com/yourusername/data-analyst-portfolio.git
-   ```
-2. **Project Structure:**  
-   - Each project is in its own folder with a detailed Jupyter notebook or report.
-   - Data sources are referenced or included as sample files (where permitted).
-   - Visualizations and results are embedded within each notebook.
-
-3. **Dependencies:**  
-   - Python 3.x  
-   - Jupyter Notebook  
-   - pandas, numpy, matplotlib, seaborn, scipy  
-   - (For Power BI projects) Power BI Desktop
-
-   To install Python dependencies:
-   ```bash
-   pip install pandas numpy matplotlib seaborn scipy
-   ```
 
 ---
 
@@ -89,25 +65,8 @@ Each project below includes a summary, objectives, data sources, tools used, and
 
 ## **Future Work**
 
-- Expand portfolio with more projects using Power BI and advanced modeling techniques
+- Expand portfolio with more projects using Power BI and Python programming techniques
 - Add interactive dashboards and real-time data analysis examples
 - Explore new domains (e.g., sports analytics, sci-fi movie data)
 
----
 
-## **Acknowledgments**
-
-- Thanks to open data providers and the data analytics community for inspiration and resources.
-- Special mention to mentors, colleagues, and contributors who provided feedback.
-
----
-
-## **License**
-
-This portfolio and its contents are released under the MIT License. Refer to individual project folders for any additional data source licenses.
-
----
-
-> *For questions, collaboration, or feedback, feel free to reach out via [your preferred contact method].*
-
----
