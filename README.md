@@ -14,52 +14,56 @@ I'm an operations data analyst based in Stockholm, Sweden, with a passion for tr
 
 Each project below includes a summary, objectives, data sources, tools used, and key outcomes.
 
-### **1. [Power BI / Operations Health Dashboard]**
+### **1. Power BI / Operations Health Dashboard**
 
-- **Summary:** Analyzed a retail tech store's sales data to uncover trends, identify top-selling products, and recommend improvements.
+- **Summary:** The Operations Health Dashboard is a Power BI project designed to provide a unified view of infrastructure insights of a mid-sized software development company. By integrating data from multiple sources, the dashboard empowers operations managers to monitor key performance indicators (KPIs), identify bottlenecks, and drive data-informed decision-making.
 - **Objectives:**  
-  - Investigate monthly and city-wise sales patterns  
-  - Identify best-selling items and explore reasons for their popularity  
-  - Recommend actionable steps for sales improvement
+  - Centralize Operations Data: Consolidate disparate operational data sources into a single, user-friendly dashboard.  
+  - Monitor KPIs: Track critical metrics such as order fulfillment rates, inventory turnover, delivery lead times, and incident rates.  
+  - Enable Proactive Management: Provide early warning signals for potential operational issues.
+  - Enhance Data-Driven Culture: Facilitate regular performance reviews and continuous improvement initiatives.
 - **Data:**  
-  - Sales records (order ID, date, product, price, quantity, address)
+  - Jira Project and Issue Management System
+  - Incident records ( key, priority, incident_start, fault_caused_by, area, function, duration, response_time, turn_over_drop, change_caused_by )
 - **Tools & Skills:**  
-  - Python, Pandas, Matplotlib  
-  - Data cleaning, EDA, hypothesis testing, data visualization
+  - Power BI Desktop: For report and dashboard creation
+  - Power Query: For data cleaning, transformation, and merging multiple data sources  
+  - DAX (Data Analysis Expressions): For advanced calculations and KPI creation
+  - Scheduled Data Refresh: Ensuring near real-time data availability
+  - Custom Visuals: For intuitive, interactive data exploration
 - **Key Outcomes:**  
-  - Visualized sales by month and city  
-  - Identified top products and provided insights into sales drivers  
-  - Proposed strategies for inventory and marketing optimization
+  - Improved Visibility: Stakeholders gained a clear, at-a-glance view of operational health across departments.  
+  - Faster Issue Resolution: Early detection of process bottlenecks led to a 20% reduction in incident response times.  
+  - Data-Driven Decisions: Regular use of the dashboard in weekly meetings resulted in more targeted improvement initiatives.
+  - Scalability: The modular design allows for easy integration of new data sources and KPIs as business needs evolve.
 
-### **2. [Python / Jira Data Extraction Pipeline]**
+### **2. Python / Jira Data Extraction Pipeline**
 
-- **Summary:** Explored what factors most influence a movie's box office success.
+- **Summary:** The 'Jira Data Extraction Pipeline' is a Python-based project designed to automate the extraction, transformation, and storage of issue tracking data from Jira. The pipeline streamlines reporting and analytics by providing clean, structured datasets ready for further analysis or visualization.
 - **Objectives:**  
-  - Analyze correlations between budget, ratings, votes, and gross earnings  
-  - Determine which features are most predictive of success
+  - Automate Data Collection: Seamlessly extract issue data from Jira using its REST API.  
+  - Data Cleaning & Transformation: Standardize and enrich raw data for consistency and usability.
+  - Enable Analytics: Store processed data in a format suitable for Power BI dashboards and ad-hoc analysis.
+  - Scalability: Build a modular pipeline that can be easily adapted to new Jira projects or data requirements.
 - **Data:**  
-  - Movie dataset (1980–2022): titles, genres, ratings, budgets, earnings
+  - Source: Jira Cloud REST API
+  - Incident records ( key, priority, incident_start, fault_caused_by, area, function, duration, response_time, turn_over_drop, change_caused_by )
+  - Format: JSON (raw), transformed to CSV/Parquet for downstream use
 - **Tools & Skills:**  
-  - Python, Pandas, NumPy, Seaborn, Matplotlib, SciPy  
-  - Data cleaning, statistical analysis, visualization
+  - Python Libraries: requests, pandas, pyyaml, sqlalchemy
+  - ETL Orchestration: Modular scripts with logging and error handling
+  - Storage: Processed data saved to local files
 - **Key Outcomes:**  
-  - Found strong correlation between votes/budget and gross earnings  
-  - Provided actionable recommendations for movie producers
+  - Reduced manual data extraction time by 90%
+  - Delivered clean, analysis-ready datasets for Power BI  
+  - Created reusable codebase for future Jira analytics projects
+  - Improved data quality and consistency for reporting
 
 ---
 
 ## **Data Sources**
 
-- Public datasets (links and attributions provided within each project)
 - All data used is either open-source or anonymized for demonstration purposes
-
----
-
-## **Results & Impact**
-
-- Each project includes visualizations, summary tables, and actionable recommendations.
-- Results are evaluated using appropriate metrics (e.g., correlation coefficients, hypothesis test results).
-- Where relevant, business impact and next steps are discussed.
 
 ---
 
