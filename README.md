@@ -14,12 +14,12 @@ I'm an operations data analyst based in Stockholm, Sweden, with a passion for tr
 
 Each project below includes a summary, objectives, data sources, tools used, and key outcomes.
 
-### **1. Power BI / Operations Health Dashboard**
+### **1. Power BI / Change Management Performance Dashboard**
 
-- **Summary:** The Operations Health Dashboard is a Power BI project designed to provide a unified view of infrastructure insights of a mid-sized software development company. By integrating data from multiple sources, the dashboard empowers operations managers to monitor key performance indicators (KPIs), identify bottlenecks, and drive data-informed decision-making.
+- **Summary:** The Change Management Performance Dashboard is a Power BI project designed to provide a unified view of change management insights of a mid-sized software development company. By integrating data from multiple sources, the dashboard empowers operations managers to monitor key performance indicators (KPIs), identify bottlenecks, and drive data-informed decision-making.
 - **Objectives:**  
   - Centralize Operations Data: Consolidate disparate operational data sources into a single, user-friendly dashboard.  
-  - Monitor KPIs: Track critical metrics such as order fulfillment rates, inventory turnover, delivery lead times, and incident rates.  
+  - Monitor KPIs: Track critical metrics such as order 'change failure rate %', delivery lead times, and 'incidents caused by change'.  
   - Enable Proactive Management: Provide early warning signals for potential operational issues.
   - Enhance Data-Driven Culture: Facilitate regular performance reviews and continuous improvement initiatives.
 - **Data:**  
@@ -33,8 +33,8 @@ Each project below includes a summary, objectives, data sources, tools used, and
   - Scheduled Data Refresh: Ensuring near real-time data availability
   - Custom Visuals: For intuitive, interactive data exploration
 - **Key Outcomes:**  
-  - Improved Visibility: Stakeholders gained a clear, at-a-glance view of operational health across departments.  
-  - Faster Issue Resolution: Early detection of process bottlenecks led to a 20% reduction in incident response times.  
+  - Improved Visibility: Stakeholders gained a clear, at-a-glance view of change management operational health across departments.  
+  - Faster Issue Resolution: Early detection of process bottlenecks led to a 18% reduction in incident response times.  
   - Data-Driven Decisions: Regular use of the dashboard in weekly meetings resulted in more targeted improvement initiatives.
   - Scalability: The modular design allows for easy integration of new data sources and KPIs as business needs evolve.
 
